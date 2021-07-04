@@ -1,5 +1,7 @@
+import { css } from '../styles';
+
 export const getProps = (allProps, theme) => {
-  const { style, css, ...props } = allProps;
+  const { styled, ...props } = allProps;
 
   const styledKeys = Object.keys(props).filter((key) => key.startsWith('_$'));
 
@@ -13,15 +15,12 @@ export const getProps = (allProps, theme) => {
     .map((key) => ({ [key]: props[key] }))
     .reduce((acc, val) => ({ ...acc, ...val }), {});
 
-  console.log(styledProps);
-  console.log(restProps);
-
   const classNames =
-    typeof style === 'function'
+    typeof styled === 'function'
       ? css({
-          ...style({ ...styledProps, $theme: theme }),
+          ...styled({ ...styledProps, $theme: theme }),
         })
-      : css({ ...style });
+      : css({ ...styled });
 
   return { class: classNames, ...restProps };
 };

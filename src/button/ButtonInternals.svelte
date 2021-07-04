@@ -4,7 +4,7 @@ import { getOverrides } from '../styles';
 import {
   StartEnhancer as StyledStartEnhancer,
   EndEnhancer as StyledEndEnhancer,
-} from './styled-components';
+} from './styled/index.js';
 
 export let overrides = {};
 export let startEnhancer = null;

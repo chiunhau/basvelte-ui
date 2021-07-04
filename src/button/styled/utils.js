@@ -1,156 +1,6 @@
-/*
-Copyright (c) 2018-2020 Uber Technologies, Inc.
+import { KIND, SIZE, SHAPE } from '../constants.js';
 
-This source code is licensed under the MIT license found in the
-LICENSE file in the root directory of this source tree.
-*/
-
-import { styled } from '../styles';
-import { KIND, SIZE, SHAPE } from './constants.js';
-
-export const BaseButton = styled(
-  'button',
-  ({
-    $theme,
-    $size,
-    $kind,
-    $shape,
-    $isLoading,
-    $isSelected,
-    $disabled,
-    $isFocusVisible,
-  }) => ({
-    display: 'inline-flex',
-    // need to maintain button width while showing loading spinner
-    flexDirection: $isLoading ? 'column' : 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderLeftWidth: 0,
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderBottomWidth: 0,
-    borderLeftStyle: 'none',
-    borderTopStyle: 'none',
-    borderRightStyle: 'none',
-    borderBottomStyle: 'none',
-    outline: 'none',
-    boxShadow: $isFocusVisible
-      ? `inset 0 0 0 3px ${$theme.colors.accent}`
-      : 'none',
-    textDecoration: 'none',
-    WebkitAppearance: 'none',
-    transitionProperty: 'background',
-    transitionDuration: $theme.animation.timing200,
-    transitionTimingFunction: $theme.animation.linearCurve,
-    cursor: 'pointer',
-    ':disabled': {
-      cursor: 'not-allowed',
-      backgroundColor: $theme.colors.buttonDisabledFill,
-      color: $theme.colors.buttonDisabledText,
-    },
-    marginLeft: 0,
-    marginTop: 0,
-    marginRight: 0,
-    marginBottom: 0,
-    ...getFontStyles({ $theme, $size }),
-    ...getBorderRadiiStyles({ $theme, $size, $shape }),
-    ...getPaddingStyles({ $theme, $size, $shape }),
-    // Kind style override
-    ...getKindStyles({ $theme, $kind, $isLoading, $isSelected, $disabled }),
-    ...getShapeStyles({ $theme, $shape, $size }),
-  })
-);
-
-export const EndEnhancer = styled('div', ({ $theme }) => {
-  const marginDirection =
-    $theme.direction === 'rtl' ? 'marginRight' : 'marginLeft';
-  return {
-    display: 'flex',
-    [marginDirection]: $theme.sizing.scale500,
-  };
-});
-
-export const StartEnhancer = styled('div', ({ $theme }) => {
-  const marginDirection =
-    $theme.direction === 'rtl' ? 'marginLeft' : 'marginRight';
-  return {
-    display: 'flex',
-    [marginDirection]: $theme.sizing.scale500,
-  };
-});
-
-export const LoadingSpinnerContainer = styled('div', ({ $theme, $size }) => {
-  // we don't have a theming value for this
-  let margins = '3px';
-  if ($size === SIZE.mini || $size === SIZE.compact) {
-    margins = $theme.sizing.scale0;
-  }
-  if ($size === SIZE.large) {
-    margins = $theme.sizing.scale100;
-  }
-
-  return {
-    lineHeight: 0,
-    position: 'static',
-    marginBottom: margins,
-    marginTop: margins,
-  };
-});
-
-export const LoadingSpinner = styled(
-  'span',
-  ({ $theme, $kind, $disabled, $size }) => {
-    const { foreground, background } = getLoadingSpinnerColors({
-      $theme,
-      $kind,
-      $disabled,
-    });
-
-    let dimension = $theme.sizing.scale550;
-    if ($size === SIZE.mini || $size === SIZE.compact) {
-      dimension = $theme.sizing.scale500;
-    }
-    if ($size === SIZE.large) {
-      dimension = $theme.sizing.scale600;
-    }
-
-    return {
-      height: dimension,
-      width: dimension,
-      borderTopLeftRadius: '50%',
-      borderTopRightRadius: '50%',
-      borderBottomRightRadius: '50%',
-      borderBottomLeftRadius: '50%',
-      borderLeftStyle: 'solid',
-      borderTopStyle: 'solid',
-      borderRightStyle: 'solid',
-      borderBottomStyle: 'solid',
-      borderLeftWidth: $theme.sizing.scale0,
-      borderTopWidth: $theme.sizing.scale0,
-      borderRightWidth: $theme.sizing.scale0,
-      borderBottomWidth: $theme.sizing.scale0,
-      borderTopColor: foreground,
-      borderLeftColor: background,
-      borderBottomColor: background,
-      borderRightColor: background,
-      boxSizing: 'border-box',
-      display: 'inline-block',
-      animationDuration: $theme.animation.timing700,
-      animationTimingFunction: 'linear',
-      animationIterationCount: 'infinite',
-      animationName: {
-        to: {
-          transform: 'rotate(360deg)',
-        },
-        from: {
-          transform: 'rotate(0deg)',
-        },
-      },
-    };
-  }
-);
-
-function getLoadingSpinnerColors({ $theme, $kind, $disabled }) {
+export const getLoadingSpinnerColors = ({ $theme, $kind, $disabled }) => {
   if ($disabled) {
     return {
       foreground: $theme.colors.buttonDisabledSpinnerForeground,
@@ -184,9 +34,9 @@ function getLoadingSpinnerColors({ $theme, $kind, $disabled }) {
       };
     }
   }
-}
+};
 
-function getBorderRadiiStyles({ $theme, $size, $shape }) {
+export const getBorderRadiiStyles = ({ $theme, $size, $shape }) => {
   let value = $theme.borders.buttonBorderRadius;
 
   if ($shape === SHAPE.pill) {
@@ -207,9 +57,9 @@ function getBorderRadiiStyles({ $theme, $size, $shape }) {
     borderTopLeftRadius: value,
     borderBottomLeftRadius: value,
   };
-}
+};
 
-function getFontStyles({ $theme, $size }) {
+export const getFontStyles = ({ $theme, $size }) => {
   switch ($size) {
     case SIZE.mini:
       return $theme.typography.font150;
@@ -220,9 +70,9 @@ function getFontStyles({ $theme, $size }) {
     default:
       return $theme.typography.font350;
   }
-}
+};
 
-function getPaddingStyles({ $theme, $size, $shape }) {
+export const getPaddingStyles = ({ $theme, $size, $shape }) => {
   const iconShape =
     $shape === SHAPE.square ||
     $shape === SHAPE.circle ||
@@ -273,9 +123,15 @@ function getPaddingStyles({ $theme, $size, $shape }) {
           : $theme.sizing.scale600,
       };
   }
-}
+};
 
-function getKindStyles({ $theme, $isLoading, $isSelected, $kind, $disabled }) {
+export const getKindStyles = ({
+  $theme,
+  $isLoading,
+  $isSelected,
+  $kind,
+  $disabled,
+}) => {
   if ($disabled) {
     return Object.freeze({});
   }
@@ -359,9 +215,9 @@ function getKindStyles({ $theme, $isLoading, $isSelected, $kind, $disabled }) {
     default:
       return Object.freeze({});
   }
-}
+};
 
-function getShapeStyles({ $theme, $shape, $size }) {
+export const getShapeStyles = ({ $theme, $shape, $size }) => {
   if ($shape === SHAPE.circle || $shape === SHAPE.square) {
     let height, width;
     switch ($size) {
@@ -394,4 +250,4 @@ function getShapeStyles({ $theme, $shape, $size }) {
   } else {
     return {};
   }
-}
+};

@@ -1,7 +1,7 @@
 <script>
 import { createEventDispatcher } from 'svelte';
 import { getOverrides } from '../styles';
-import { BaseButton as StyledButton } from './styled-components';
+import StyledButton from './styled/BaseButton.svelte';
 import ButtonInternals from './ButtonInternals.svelte';
 import { KIND, SHAPE, SIZE } from './constants';
 
