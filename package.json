@@ -1,0 +1,15 @@
+{
+  "name": "basvelte-ui",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "styletron-engine-atomic": "^1.4.8"
+  }
+}
