@@ -4,5 +4,12 @@
   import {getProps} from './utils'
 </script>
 
-<button {...getProps($$restProps, getContext(themeContextKey))}><slot /></button>
+<button 
+  {...getProps($$restProps, getContext(themeContextKey))}
+  on:click
+  on:blur
+  on:focus
+>
+  <slot/>
+</button>
 
