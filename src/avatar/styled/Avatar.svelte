@@ -1,6 +1,6 @@
 <script>
 import Img from '../../common/Img.svelte';
-import { getSize } from './utils';
+import { getSize } from '../utils';
 </script>
 
 <Img

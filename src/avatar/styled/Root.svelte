@@ -1,6 +1,6 @@
 <script>
 import Div from '../../common/Div.svelte';
-import { getSize } from './utils';
+import { getSize } from '../utils';
 </script>
 
 <Div
