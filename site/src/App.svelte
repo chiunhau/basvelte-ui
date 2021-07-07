@@ -12,6 +12,7 @@ import { Avatar } from 'basvelte-ui/avatar/index.js';
 import { Input } from 'basvelte-ui/input/index.js';
 import { Heading, HeadingLevel } from 'basvelte-ui/heading/index.js';
 import { Menu } from 'basvelte-ui/menu/index.js';
+import { Tag } from 'basvelte-ui/tag/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 </script>
 
@@ -20,6 +21,8 @@ const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
     <HeadingLevel>
       <Heading>Basvelte UI Playground</Heading>
       <HeadingLevel>
+        <Heading>Tag</Heading>
+        <Tag>Hot</Tag>
         <Heading>Button</Heading>
         <Button size="{SIZE.mini}">Mini</Button>
         <Button size="{SIZE.compact}">Compact</Button>

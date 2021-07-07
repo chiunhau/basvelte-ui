@@ -40,7 +40,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [x] Heading 🎉
 - [ ] Icon
 - [ ] List
-- [ ] Tag
+- [ ] Tag 🚧
 - [ ] Avatar 🚧
 - [ ] Drawer
 - [ ] Modal
