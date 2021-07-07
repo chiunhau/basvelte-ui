@@ -36,7 +36,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] Menu 🚧
 - [ ] Select
 - [ ] Tabs
-- [ ] Layout Grid
+- [ ] Layout Grid 🚧
 - [x] Heading 🎉
 - [ ] Icon
 - [ ] List

@@ -13,6 +13,7 @@ import { Input } from 'basvelte-ui/input/index.js';
 import { Heading, HeadingLevel } from 'basvelte-ui/heading/index.js';
 import { Menu } from 'basvelte-ui/menu/index.js';
 import { Tag } from 'basvelte-ui/tag/index.js';
+import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 </script>
 
@@ -21,6 +22,15 @@ const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
     <HeadingLevel>
       <Heading>Basvelte UI Playground</Heading>
       <HeadingLevel>
+        <Heading>Layout Grid</Heading>
+        <Grid gridColumns="{[2, 6, 12]}">
+          <Cell>1</Cell>
+          <Cell>2</Cell>
+          <Cell>3</Cell>
+          <Cell>4</Cell>
+          <Cell>5</Cell>
+          <Cell>6</Cell>
+        </Grid>
         <Heading>Tag</Heading>
         <Tag>Hot</Tag>
         <Heading>Button</Heading>
