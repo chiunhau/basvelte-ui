@@ -31,7 +31,7 @@ const [Root, rootProps] = getOverrides(overrides.Root, StyledRoot);
 </script>
 
 <Root
-  data-baseweb="avatar"
+  data-basvelte="avatar"
   aria-label="{noImageAvailable ? name : null}"
   role="{noImageAvailable ? 'img' : null}"
   _$didImageFailToLoad="{noImageAvailable}"

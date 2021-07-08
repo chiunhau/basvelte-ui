@@ -23,7 +23,7 @@ const FONTS = [
 
 <svelte:component
   this="{headingComponents[renderedLevel - 1]}"
-  data-baseweb="heading"
+  data-basvelte="heading"
   font="{styleLevel ? FONTS[styleLevel] : FONTS[level]}">
   <slot />
 </svelte:component>

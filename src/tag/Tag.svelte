@@ -101,7 +101,7 @@ const actionSize = {
 
 <Root
   this="{ref}"
-  data-baseweb="tag"
+  data-basvelte="tag"
   aria-disabled="{disabled ? true : null}"
   role="{isButton ? 'button' : null}"
   tabIndex="{isButton ? 0 : null}"

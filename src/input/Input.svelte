@@ -40,7 +40,7 @@ const sharedProps = {
 };
 </script>
 
-<Root data-baseweb="input" {...sharedProps} {...rootProps}>
+<Root data-basvelte="input" {...sharedProps} {...rootProps}>
   {#if startEnhancer !== null}
     <StartEnhancer
       {...sharedProps}

@@ -23,7 +23,7 @@ const internalOnClick = (e) => {
     e.preventDefault();
     return;
   }
-  console.log('internalOnClick');
+
   dispatch('click', e);
 };
 
@@ -40,7 +40,7 @@ const sharedProps = {
 </script>
 
 <Button
-  data-baseweb="button"
+  data-basvelte="button"
   bind:this="{ref}"
   on:click="{internalOnClick}"
   on:blur

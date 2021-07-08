@@ -67,7 +67,7 @@ const [Input, inputProps] = getOverrides(overrides.Input, StyledInput);
 </script>
 
 <InputContainer
-  data-baseweb="base-input"
+  data-basvelte="base-input"
   {...sharedProps}
   {...inputContainerProps}>
   <Input

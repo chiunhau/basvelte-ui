@@ -84,7 +84,7 @@ const isEmpty = optgroups.every((optgroup) => !groupedItems[optgroup].length);
   onMouseLeave="{handleMouseLeave}"
   onMouseOver="{focusMenu}"
   tabIndex="{0}"
-  data-baseweb="menu"
+  data-basvelte="menu"
   $isFocusVisible="{focusVisible}"
   {...listProps}>
   {#if isEmpty}
