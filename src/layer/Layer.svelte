@@ -1,39 +1,30 @@
 <script>
 import { getContext, onMount, onDestroy } from 'svelte';
-import { Div } from '../common/index.js';
+import Portal from 'svelte-portal';
 import { Container } from './styled/index.js';
 
 export let onEscape = () => {};
 export let onDocumentClick = () => {};
 
 const layerContext = getContext('basvelte-ui:layers');
-const hostStore = getContext('basvelte-ui:layersHost');
-const { addEscapeHandler, addDocClickHandler } = layerContext;
-
-let ref;
-let host;
-let mounted = false;
+const {
+  addEscapeHandler,
+  addDocClickHandler,
+  removeEscapeHandler,
+  removeDocClickHandler,
+} = layerContext;
 
 onMount(() => {
   addEscapeHandler(onEscape);
   addDocClickHandler(onDocumentClick);
-  mounted = true;
-
-  if (host) {
-    host.appendChild(ref);
-  }
 });
 
-hostStore.subscribe((value) => {
-  if (value) {
-    host = value;
-    if (host && mounted) {
-      host.appendChild(ref);
-    }
-  }
+onDestroy(() => {
+  removeEscapeHandler(onEscape);
+  removeDocClickHandler(onDocumentClick);
 });
 </script>
 
-<Div styled="{{ display: 'none' }}">
-  <Container bind:ref><slot /></Container>
-</Div>
+<Portal target="#basvelte-ui-layers">
+  <Container><slot /></Container>
+</Portal>

@@ -1,13 +1,8 @@
 <script>
-import { onMount, setContext, getContext } from 'svelte';
-import { writable } from 'svelte/store';
-
-export let hostRef;
+import { onMount, setContext } from 'svelte';
 
 let escapeKeyHandlers = [];
 let docClickHandlers = [];
-let hostStore = writable(hostRef);
-setContext('basvelte-ui:layersHost', hostStore);
 
 const onDocumentClick = (event) => {
   const docClickHandler = docClickHandlers[docClickHandlers.length - 1];
@@ -40,14 +35,13 @@ const onAddDocClickHandler = (docClickHandler) => {
 };
 
 const onRemoveDocClickHandler = (docClickHandler) => {
-  docClickHandlers = prev.docClickHandlers.filter(
+  docClickHandlers = docClickHandlers.filter(
     (handler) => handler !== docClickHandler
   );
 };
 
 setContext('basvelte-ui:layers', {
   zIndex: 1,
-  // host: hostStore,
   addEscapeHandler: onAddEscapeHandler,
   removeEscapeHandler: onRemoveEscapeHandler,
   addDocClickHandler: onAddDocClickHandler,
@@ -57,9 +51,8 @@ setContext('basvelte-ui:layers', {
 onMount(() => {
   document.addEventListener('keyup', onKeyUp);
   document.addEventListener('mousedown', onDocumentClick);
-  hostStore.set(hostRef);
 });
 </script>
 
 <slot />
-<div bind:this="{hostRef}"></div>
+<div id="basvelte-ui-layers"></div>
