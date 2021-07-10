@@ -8,7 +8,7 @@ LICENSE file in the root directory of this source tree.
 
 import colorTokens from './color-tokens.js';
 import { hexToRgb as hexToRgba } from '../../styles/util.js';
-import colors from '../../tokens/colors.js';
+import colors from '../../styles/colors.js';
 
 export default (
   // themePrimitives or foundation colors
