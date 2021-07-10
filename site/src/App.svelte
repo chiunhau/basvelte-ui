@@ -11,6 +11,7 @@ import Theme from 'basvelte-ui/styles/Theme.svelte';
 import { Button, SIZE } from 'basvelte-ui/button/index.js';
 import { Avatar } from 'basvelte-ui/avatar/index.js';
 import { Input } from 'basvelte-ui/input/index.js';
+import { FormControl } from 'basvelte-ui/form-control/index.js';
 import { Heading, HeadingLevel } from 'basvelte-ui/heading/index.js';
 import { Menu } from 'basvelte-ui/menu/index.js';
 import { Tag } from 'basvelte-ui/tag/index.js';
@@ -68,7 +69,9 @@ onMount(() => {
         <Button disabled>Disabled</Button>
 
         <Heading>Input</Heading>
-        <Input startEnhancer="😀" placeholder="Placeholder" />
+        <FormControl label="Label" caption="Caption">
+          <Input startEnhancer="😀" placeholder="Placeholder" />
+        </FormControl>
 
         <Heading>Avatar</Heading>
         <Avatar
