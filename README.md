@@ -27,7 +27,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 
 - [ ] Button 🚧
 - [ ] Button Group
-- [ ] Checkbox
+- [ ] Checkbox 🚧
 - [ ] Form Control 🚧
 - [ ] Input 🚧
 - [ ] Radio

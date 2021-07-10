@@ -18,6 +18,7 @@ import { Tag } from 'basvelte-ui/tag/index.js';
 import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
 import { ListItem, ListItemLabel } from 'basvelte-ui/list/index.js';
 import { Textarea } from 'basvelte-ui/textarea/index.js';
+import { Checkbox, STYLE_TYPE } from 'basvelte-ui/checkbox/index.js';
 import {
   Modal,
   ModalHeader,
@@ -123,6 +124,11 @@ onMount(() => {
           value="Textarea"
           placeholder="Controlled Input"
           clearOnEscape />
+        <Heading>Checkbox</Heading>
+        <Checkbox>Unchecked</Checkbox>
+        <Checkbox checked="{true}">Checked</Checkbox>
+        <Checkbox checked="{true}" checkmarkType="{STYLE_TYPE.toggle_round}"
+          >Round Toggle</Checkbox>
       </HeadingLevel>
     </HeadingLevel>
   </main>
