@@ -5,6 +5,9 @@ import { getProps } from './utils';
 export let ref;
 </script>
 
-<div bind:this="{ref}" {...getProps($$restProps, getContext(themeContextKey))}>
+<div
+  on:click
+  bind:this="{ref}"
+  {...getProps($$restProps, getContext(themeContextKey))}>
   <slot />
 </div>

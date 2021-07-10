@@ -1,5 +1,6 @@
 <script>
 import Div from '../../common/Div.svelte';
+export let ref;
 </script>
 
-<Div styled="{(props) => ({})}" {...$$restProps} />
+<Div bind:ref styled="" {...$$restProps}><slot /></Div>
