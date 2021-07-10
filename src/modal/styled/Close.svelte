@@ -3,6 +3,7 @@ import Button from '../../common/Button.svelte';
 </script>
 
 <Button
+  on:click
   styled="{(props) => {
     const { $theme, $isFocusVisible } = props;
     const dir = $theme.direction === 'rtl' ? 'left' : 'right';

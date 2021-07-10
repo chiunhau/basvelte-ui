@@ -38,13 +38,13 @@ onMount(() => {
   mounted = true;
 });
 
-afterUpdate(() => {
+$: {
   if (isOpen) {
     didOpen();
   } else {
     didClose();
   }
-});
+}
 
 const disableMountNodeScroll = () => {
   const mountNode = getMountNode();
@@ -56,8 +56,6 @@ const resetMountNodeScroll = () => {
   const mountNode = getMountNode();
   const lastStyle = lastMountNodeOverflowStyle;
   if (mountNode && lastStyle !== null) {
-    // If overflow is not 'hidden', something else has changed the
-    // overflow style and we shouldn't try to reset it.
     if (mountNode.style.overflow === 'hidden') {
       mountNode.style.overflow = lastStyle || '';
     }
@@ -73,21 +71,16 @@ const onEscape = () => {
 };
 
 const onDocumentClick = (e) => {
-  console.log(e.target);
-  console.log(dialogContainerRef);
-  console.log(backdropRef);
   if (
     e.target &&
     e.target instanceof HTMLElement &&
     (e.target.contains(dialogContainerRef) || e.target.contains(backdropRef))
   ) {
-    console.log('hey');
     onBackdropClick();
   }
 };
 
 const onBackdropClick = () => {
-  console.log('backdrop click');
   if (!closeable) {
     return;
   }
@@ -103,7 +96,6 @@ const clearTimers = () => {
     clearTimeout(animateOutTimer);
   }
   if (animateStartTimer) {
-    // eslint-disable-next-line cup/no-undef
     cancelAnimationFrame(animateStartTimer);
   }
 };
@@ -118,7 +110,6 @@ const didOpen = () => {
 
   animateStartTimer = requestAnimationFrame(() => {
     isVisible = true;
-    console.log(isVisible);
   });
 };
 
@@ -200,7 +191,7 @@ const [Close, closeProps] = getOverrides(overrides.Close, StyledClose);
                 width="10"
                 height="10"
                 viewBox="0 0 10 10"
-                style="{{ stroke: '#000000' }}"
+                style="stroke: #000000"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9 1L5 5M1 9L5 5M5 5L1 1M5 5L9 9"
