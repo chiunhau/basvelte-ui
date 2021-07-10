@@ -1,7 +1,6 @@
 <script>
 import { getContext } from 'svelte';
-import { themeContextKey } from '../styles';
-import { getProps } from './utils';
+import { themeContextKey, getProps } from '../styles';
 </script>
 
 <button

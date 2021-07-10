@@ -7,7 +7,7 @@ main {
 
 <script>
 import { onMount } from 'svelte';
-import Theme from 'basvelte-ui/styles/Theme.svelte';
+import Theme from 'basvelte-ui/Theme.svelte';
 import { Button, SIZE } from 'basvelte-ui/button/index.js';
 import { Avatar } from 'basvelte-ui/avatar/index.js';
 import { Input } from 'basvelte-ui/input/index.js';

@@ -1,7 +1,6 @@
 <script>
 import { getContext } from 'svelte';
-import { themeContextKey } from '../styles';
-import { getProps } from './utils';
+import { getProps, themeContextKey } from '../styles';
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -->

@@ -6,7 +6,7 @@
 
 ```svelte
 <script>
-import Theme from 'basvelte-ui/styles/Theme.svelte'; //Theme context
+import Theme from 'basvelte-ui/Theme.svelte'; //Theme context
 import { Button, SIZE } from 'basvelte-ui/button';
 </script>
 

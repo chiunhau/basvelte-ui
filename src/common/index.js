@@ -1,3 +1,4 @@
+export { default as A } from './A.svelte';
 export { default as Button } from './Button.svelte';
 export { default as Div } from './Div.svelte';
 export { default as H1 } from './H1.svelte';
@@ -8,4 +9,10 @@ export { default as H5 } from './H5.svelte';
 export { default as H6 } from './H6.svelte';
 export { default as Img } from './Img.svelte';
 export { default as Input } from './Input.svelte';
+export { default as Label } from './Label.svelte';
+export { default as Li } from './Li.svelte';
+export { default as P } from './P.svelte';
 export { default as Span } from './Span.svelte';
+export { default as Svg } from './Svg.svelte';
+export { default as Textarea } from './Textarea.svelte';
+export { default as Ul } from './Ul.svelte';

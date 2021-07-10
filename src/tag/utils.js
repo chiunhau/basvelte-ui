@@ -2,7 +2,7 @@ import tint from 'polished/lib/color/tint.js';
 import shade from 'polished/lib/color/shade.js';
 
 import { KIND, VARIANT, SIZE } from './constants.js';
-import colorTokens from '../styles/colors.js';
+import colorTokens from '../themes/colors.js';
 
 export function customOnRamp(color, unit) {
   switch (unit) {

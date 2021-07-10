@@ -7,8 +7,8 @@ LICENSE file in the root directory of this source tree.
 // @flow
 
 import colorTokens from './color-tokens.js';
-import { hexToRgb as hexToRgba } from '../../styles/util.js';
-import colors from '../../styles/colors.js';
+import { hexToRgb as hexToRgba } from '../../styles/utils.js';
+import colors from '../colors.js';
 
 export default (
   // themePrimitives or foundation colors

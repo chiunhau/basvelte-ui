@@ -1,6 +1,6 @@
 <script>
 import Div from '../../common/Div.svelte';
-import { expandBorderStyles } from '../../styles/util';
+import { expandBorderStyles } from '../../styles/utils';
 </script>
 
 <Div
