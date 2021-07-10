@@ -19,6 +19,7 @@ import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
 import { ListItem, ListItemLabel } from 'basvelte-ui/list/index.js';
 import { Textarea } from 'basvelte-ui/textarea/index.js';
 import { Checkbox, STYLE_TYPE } from 'basvelte-ui/checkbox/index.js';
+import { Alert } from 'basvelte-ui/icon/index.js';
 import {
   Modal,
   ModalHeader,
@@ -84,6 +85,9 @@ onMount(() => {
 
         <Heading>Menu</Heading>
         <Menu items="{items}" />
+
+        <Heading>Icon</Heading>
+        <Alert />
 
         <Heading>Modal</Heading>
         <Button on:click="{handleOpenModal}">Open Modal</Button>

@@ -1,0 +1,23 @@
+<script>
+import Icon from '../Icon.svelte';
+
+export let ref;
+export let title = '%%SVG_TITLE%%';
+export let size;
+export let color;
+export let overrides = {};
+
+const SvgOverride = overrides && overrides.Svg ? overrides.Svg : {};
+</script>
+
+<Icon
+  %%SVG_VIEWBOX%%
+  bind:ref
+  title="{title}"
+  size="{size}"
+  color="{color}"
+  overrides="{{ Svg: SvgOverride }}"
+  {...$$restProps}>
+    %%ICON_PATH%%
+</Icon>
+

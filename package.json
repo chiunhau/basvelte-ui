@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "rollup -c -w",
     "start": "sirv site/public --no-clear",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "icon:generate": "node ./src/icon/build-icons.js"
   },
   "author": "",
   "license": "MIT",
