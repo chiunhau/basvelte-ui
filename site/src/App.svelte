@@ -6,6 +6,7 @@ main {
 </style>
 
 <script>
+import { onMount } from 'svelte';
 import Theme from 'basvelte-ui/styles/Theme.svelte';
 import { Button, SIZE } from 'basvelte-ui/button/index.js';
 import { Avatar } from 'basvelte-ui/avatar/index.js';
@@ -14,7 +15,30 @@ import { Heading, HeadingLevel } from 'basvelte-ui/heading/index.js';
 import { Menu } from 'basvelte-ui/menu/index.js';
 import { Tag } from 'basvelte-ui/tag/index.js';
 import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  SIZE as MODAL_SIZE,
+} from 'basvelte-ui/modal/index.js';
+import { Drawer, ANCHOR as DRAWER_ANCHOR } from 'basvelte-ui/drawer/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
+
+let showLayer = false;
+let isOpen = false;
+let drawerIsOpen = false;
+let divRef;
+let divRef2;
+
+const handleOpenModal = () => {
+  isOpen = true;
+};
+
+onMount(() => {
+  console.log(divRef);
+  console.log(divRef2);
+});
 </script>
 
 <Theme>
@@ -54,6 +78,37 @@ const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 
         <Heading>Menu</Heading>
         <Menu items="{items}" />
+
+        <Heading>Modal</Heading>
+        <Button on:click="{handleOpenModal}">Open Modal</Button>
+        <Modal
+          size="{MODAL_SIZE.default}"
+          isOpen="{isOpen}"
+          onClose="{() => {
+            isOpen = false;
+          }}">
+          <ModalHeader>Modal Header</ModalHeader>
+          <ModalBody>Modal Body</ModalBody>
+          <ModalFooter
+            ><Button
+              on:click="{() => {
+                isOpen = false;
+              }}">Close</Button
+            ></ModalFooter>
+        </Modal>
+        <Heading>Drawer</Heading>
+        <Button
+          on:click="{() => {
+            drawerIsOpen = true;
+          }}">Open Drawer</Button>
+        <Drawer
+          isOpen="{drawerIsOpen}"
+          autoFocus
+          onClose="{() => {
+            drawerIsOpen = false;
+          }}">
+          <div>drawer content</div>
+        </Drawer>
       </HeadingLevel>
     </HeadingLevel>
   </main>

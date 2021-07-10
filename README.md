@@ -1,6 +1,6 @@
 # Basvelte UI
 
-Basvelte is a Svelte component system inspired by the mighty [Baseui](https://baseweb.design/).
+(WIP 🚧) Basvelte is a Svelte component system inspired by the mighty [Baseui](https://baseweb.design/).
 
 ## Usage
 
@@ -42,10 +42,10 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] List
 - [ ] Tag 🚧
 - [ ] Avatar 🚧
-- [ ] Drawer
-- [ ] Modal
+- [ ] Drawer 🚧
+- [ ] Modal 🚧
 - [ ] Popover
-- [ ] Layer
+- [ ] Layer 🚧
 
 ### Advanced
 
