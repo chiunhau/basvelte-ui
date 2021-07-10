@@ -32,7 +32,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] Input 🚧
 - [ ] Radio
 - [ ] Slider
-- [ ] Textarea
+- [ ] Textarea 🚧
 - [ ] Menu 🚧
 - [ ] Select
 - [ ] Tabs

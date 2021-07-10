@@ -4,7 +4,7 @@ import {
   getFont,
   getInputEnhancerColors,
   getInputEnhancerPadding,
-} from './utils';
+} from '../utils';
 </script>
 
 <Div

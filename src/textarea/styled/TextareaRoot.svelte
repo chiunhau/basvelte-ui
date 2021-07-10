@@ -1,7 +1,7 @@
 <script>
 import Div from '../../common/Div.svelte';
 export let ref;
-import { getRootStyles } from '../../input/styled/utils.js';
+import { getRootStyles } from '../../input/utils.js';
 </script>
 
 <Div
