@@ -17,6 +17,7 @@ import { Menu } from 'basvelte-ui/menu/index.js';
 import { Tag } from 'basvelte-ui/tag/index.js';
 import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
 import { ListItem, ListItemLabel } from 'basvelte-ui/list/index.js';
+import { Textarea } from 'basvelte-ui/textarea/index.js';
 import {
   Modal,
   ModalHeader,
@@ -117,6 +118,11 @@ onMount(() => {
         <ListItem artwork="😀">
           <ListItemLabel>Label</ListItemLabel>
         </ListItem>
+        <Heading>Textarea</Heading>
+        <Textarea
+          value="Textarea"
+          placeholder="Controlled Input"
+          clearOnEscape />
       </HeadingLevel>
     </HeadingLevel>
   </main>
