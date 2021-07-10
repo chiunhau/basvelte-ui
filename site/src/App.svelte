@@ -16,6 +16,7 @@ import { Heading, HeadingLevel } from 'basvelte-ui/heading/index.js';
 import { Menu } from 'basvelte-ui/menu/index.js';
 import { Tag } from 'basvelte-ui/tag/index.js';
 import { Grid, Cell } from 'basvelte-ui/layout-grid/index.js';
+import { ListItem, ListItemLabel } from 'basvelte-ui/list/index.js';
 import {
   Modal,
   ModalHeader,
@@ -112,6 +113,10 @@ onMount(() => {
           }}">
           <div>drawer content</div>
         </Drawer>
+        <Heading>List</Heading>
+        <ListItem artwork="😀">
+          <ListItemLabel>Label</ListItemLabel>
+        </ListItem>
       </HeadingLevel>
     </HeadingLevel>
   </main>

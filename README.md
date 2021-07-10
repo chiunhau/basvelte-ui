@@ -39,7 +39,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] Layout Grid 🚧
 - [x] Heading 🎉
 - [ ] Icon
-- [ ] List
+- [ ] List 🚧
 - [ ] Tag 🚧
 - [ ] Avatar 🚧
 - [ ] Drawer 🚧
