@@ -1,8 +1,13 @@
 <script>
 import { createEventDispatcher } from 'svelte';
 import { getOverrides } from '../styles';
-import StyledButton from './styled/BaseButton.svelte';
+import {
+  BaseButton as StyledBaseButton,
+  LoadingSpinner as StyledLoadingSpinner,
+  LoadingSpinnerContainer as StyledLoadingSpinnerContainer,
+} from './styled/index.js';
 import ButtonInternals from './ButtonInternals.svelte';
+import { isFocusVisible as checkIsFocusVisible } from '../utils/focusVisible';
 import { KIND, SHAPE, SIZE } from './constants';
 
 export let disabled = false;
@@ -16,6 +21,8 @@ export let ref = null;
 export let shape = SHAPE.default;
 export let size = SIZE.default;
 
+let isFocusVisible = false;
+
 const dispatch = createEventDispatcher();
 
 const internalOnClick = (e) => {
@@ -27,15 +34,40 @@ const internalOnClick = (e) => {
   dispatch('click', e);
 };
 
-const [Button, buttonProps] = getOverrides(overrides.Button, StyledButton);
+const handleFocus = (e) => {
+  if (checkIsFocusVisible(e)) {
+    isFocusVisible = true;
+  }
 
-const sharedProps = {
+  dispatch('focus', e);
+};
+
+const handleBlur = (e) => {
+  if (isFocusVisible !== false) {
+    isFocusVisible = false;
+  }
+
+  dispatch('blur', e);
+};
+
+const [Button, buttonProps] = getOverrides(overrides.Button, StyledBaseButton);
+const [LoadingSpinner, loadingSpinnerProps] = getOverrides(
+  overrides.LoadingSpinner,
+  StyledLoadingSpinner
+);
+const [LoadingSpinnerContainer, loadingSpinnerContainerProps] = getOverrides(
+  overrides.LoadingSpinnerContainer,
+  StyledLoadingSpinnerContainer
+);
+
+$: sharedProps = {
   _$disabled: disabled,
   _$isLoading: isLoading,
   _$isSelected: isSelected,
   _$kind: kind,
   _$shape: shape,
   _$size: size,
+  _$isFocusVisible: isFocusVisible,
 };
 </script>
 
@@ -43,14 +75,28 @@ const sharedProps = {
   data-basvelte="button"
   bind:ref
   on:click="{internalOnClick}"
-  on:blur
-  on:focus
+  on:blur="{handleBlur}"
+  on:focus="{handleFocus}"
   {...buttonProps}
   {...sharedProps}>
-  <ButtonInternals
-    startEnhancer="{startEnhancer}"
-    endEnhancer="{endEnhancer}"
-    sharedProps="{sharedProps}">
-    <slot />
-  </ButtonInternals>
+  {#if isLoading}
+    <div style="opacity: 0; display: flex; height: 0px;">
+      <ButtonInternals
+        startEnhancer="{startEnhancer}"
+        endEnhancer="{endEnhancer}"
+        sharedProps="{sharedProps}">
+        <slot />
+      </ButtonInternals>
+    </div>
+    <LoadingSpinnerContainer {...sharedProps} {...loadingSpinnerContainerProps}>
+      <LoadingSpinner {...sharedProps} {...loadingSpinnerProps} />
+    </LoadingSpinnerContainer>
+  {:else}
+    <ButtonInternals
+      startEnhancer="{startEnhancer}"
+      endEnhancer="{endEnhancer}"
+      sharedProps="{sharedProps}">
+      <slot />
+    </ButtonInternals>
+  {/if}
 </Button>
