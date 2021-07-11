@@ -3,6 +3,15 @@ main {
   width: 80vw;
   margin: 0 auto;
 }
+
+.popper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
 </style>
 
 <script>
@@ -27,6 +36,11 @@ import {
   ModalFooter,
   SIZE as MODAL_SIZE,
 } from 'basvelte-ui/modal/index.js';
+import {
+  Layer,
+  TetherBehavior,
+  TETHER_PLACEMENT,
+} from 'basvelte-ui/layer/index.js';
 import { Drawer, ANCHOR as DRAWER_ANCHOR } from 'basvelte-ui/drawer/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 
@@ -35,6 +49,16 @@ let isOpen = false;
 let drawerIsOpen = false;
 let divRef;
 let divRef2;
+let isTetherOpen = false;
+
+// Tether demo
+let anchorRef;
+let popperRef;
+let popperOffset = { top: 0, left: 0 };
+
+const handlePopperUpdate = (normalizedOffsets) => {
+  popperOffset = normalizedOffsets.popper;
+};
 
 const handleOpenModal = () => {
   isOpen = true;
@@ -44,6 +68,10 @@ onMount(() => {
   console.log(divRef);
   console.log(divRef2);
 });
+
+$: {
+  console.log(anchorRef);
+}
 </script>
 
 <Theme>
@@ -119,6 +147,28 @@ onMount(() => {
           }}">
           <div>drawer content</div>
         </Drawer>
+        <Heading>Layer TetherBehavior</Heading>
+        <Button
+          bind:ref="{anchorRef}"
+          on:click="{() => {
+            isTetherOpen = true;
+          }}">Open Popper</Button>
+        {#if isTetherOpen}
+          <Layer>
+            <TetherBehavior
+              anchorRef="{anchorRef}"
+              popperRef="{popperRef}"
+              onPopperUpdate="{(...args) => handlePopperUpdate(...args)}"
+              placement="{TETHER_PLACEMENT.right}">
+              <div
+                bind:this="{popperRef}"
+                class="popper"
+                style="left:{popperOffset.left}px; top:{popperOffset.top}px;">
+                I am a popper
+              </div>
+            </TetherBehavior>
+          </Layer>
+        {/if}
         <Heading>List</Heading>
         <ListItem artwork="😀">
           <ListItemLabel>Label</ListItemLabel>

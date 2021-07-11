@@ -7,6 +7,7 @@ import {
   getPaddingStyles,
   getShapeStyles,
 } from './utils';
+export let ref;
 </script>
 
 <Button
@@ -60,6 +61,7 @@ import {
   {...$$restProps}
   on:click
   on:blur
-  on:focus>
+  on:focus
+  bind:ref>
   <slot />
 </Button>

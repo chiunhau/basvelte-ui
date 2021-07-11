@@ -41,7 +41,7 @@ const sharedProps = {
 
 <Button
   data-basvelte="button"
-  bind:this="{ref}"
+  bind:ref
   on:click="{internalOnClick}"
   on:blur
   on:focus
