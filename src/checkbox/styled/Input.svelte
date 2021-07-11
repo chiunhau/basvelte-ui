@@ -1,6 +1,6 @@
 <script>
 import Input from '../../common/Input.svelte';
-export let ref;
+export let ref = null;
 </script>
 
 <Input
@@ -14,4 +14,4 @@ export let ref;
     padding: 0,
     position: 'absolute',
   }}"
-  {...$$restProps}><slot /></Input>
+  {...$$restProps} />

@@ -2,11 +2,11 @@
 import { getOverrides } from '../styles';
 import StyledSvg from './Svg.svelte';
 
-export let title;
+export let title = '';
 export let size = 24;
-export let color;
+export let color = undefined;
 export let overrides = {};
-export let ref;
+export let ref = null;
 
 const [Svg, overrideProps] = getOverrides(overrides.Svg, StyledSvg);
 const passThroughProps = {

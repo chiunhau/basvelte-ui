@@ -1,10 +1,10 @@
 <script>
 import Div from '../../common/Div.svelte';
-export let ref;
+export let ref = null;
 </script>
 
 <Div
-  ref="{ref}"
+  bind:ref
   styled="{(props) => {
     const { $isOpen } = props;
     return {

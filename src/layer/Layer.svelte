@@ -6,7 +6,7 @@ import { Container } from './styled/index.js';
 export let onEscape = () => {};
 export let onDocumentClick = () => {};
 export let onLayerMount = () => {};
-export let mountNode;
+export let mountNode = null;
 
 const layerContext = getContext('basvelte-ui:layers');
 const {

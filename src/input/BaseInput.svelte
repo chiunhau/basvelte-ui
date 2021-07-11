@@ -25,9 +25,11 @@ export let adjoined = ADJOINED.none;
 export let positive = false;
 export let inputMode = 'text';
 export let placeholder = '';
-export let inputRef;
+export let inputRef = null;
 export let value;
-export let id;
+export let id = '';
+export let rows = undefined;
+export let clearOnEscape = false;
 
 let isFocused = autoFocus;
 
@@ -71,7 +73,7 @@ const [Input, inputProps] = getOverrides(overrides.Input, StyledInput);
   {...sharedProps}
   {...inputContainerProps}>
   <Input
-    bind:this="{inputRef}"
+    bind:ref="{inputRef}"
     autoComplete="{autoComplete}"
     disabled="{disabled}"
     id="{id}"

@@ -3,10 +3,10 @@ import { getContext } from 'svelte';
 import { getOverrides } from '../styles';
 import { Cell as DefaultStyledCell } from './styled/index.js';
 
-export let align;
-export let order;
-export let skip;
-export let span;
+export let align = undefined;
+export let order = undefined;
+export let skip = undefined;
+export let span = undefined;
 export let overrides = {};
 
 const gridContext = getContext('basvelte-ui:layoutGrid');

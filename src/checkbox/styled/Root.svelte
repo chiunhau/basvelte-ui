@@ -1,10 +1,8 @@
 <script>
 import Label from '../../common/Label.svelte';
-export let ref;
 </script>
 
 <Label
-  bind:ref
   styled="{(props) => {
     const { $disabled, $labelPlacement } = props;
     return {

@@ -1,7 +1,7 @@
 <script>
 import { getContext } from 'svelte';
 import { themeContextKey, getProps } from '../styles';
-export let ref;
+export let ref = undefined;
 </script>
 
 <button

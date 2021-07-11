@@ -1,6 +1,6 @@
 <script>
 import Div from '../../common/Div.svelte';
-export let ref;
+export let ref = null;
 </script>
 
 <Div

@@ -27,9 +27,9 @@ export let overrides = {};
 export let label = null;
 export let caption = null;
 export let disabled = false;
-export let error;
-export let positive;
-export let htmlFor;
+export let error = null;
+export let positive = null;
+export let htmlFor = '';
 
 $: sharedProps = {
   _$disabled: !!disabled,

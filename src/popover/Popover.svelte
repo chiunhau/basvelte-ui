@@ -6,6 +6,8 @@ import {
   ANIMATE_OUT_TIME,
   ANIMATE_IN_TIME,
   POPOVER_MARGIN,
+  TRIGGER_TYPE,
+  ACCESSIBILITY_TYPE,
 } from './constants.js';
 import { Layer, TetherBehavior } from '../layer/index.js';
 import {
@@ -20,16 +22,21 @@ export let animateOutTime;
 export let showArrow = false;
 export let ignoreBoundary = false;
 export let popoverMargin = POPOVER_MARGIN;
-export let popperOptions;
+export let popperOptions = {};
 export let isOpen = false;
-export let mountNode;
-export let onEscape;
+export let mountNode = undefined;
+export let onEscape = () => {};
 export let onMouseEnterDelay = 200;
 export let onMouseLeaveDelay = 200;
 export let placement = PLACEMENT.auto;
 export let overrides = {};
 export let onClick = () => {};
 export let onClickOutside = () => {};
+export let onBlur = () => {};
+export let onFocus = () => {};
+export let autoFocus = false;
+export let triggerType = TRIGGER_TYPE.click;
+export let accessibilityType = ACCESSIBILITY_TYPE.menu;
 
 // states
 let isAnimating = false;

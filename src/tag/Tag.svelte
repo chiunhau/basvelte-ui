@@ -9,7 +9,7 @@ import {
 import { KIND, VARIANT, SIZE } from './constants.js';
 
 export let closeable = true;
-export let color;
+export let color = undefined;
 export let size = SIZE.small;
 export let disabled = false;
 export let isFocused = false;
@@ -20,9 +20,9 @@ export let onActionKeyDown = () => {};
 export let onClick = null;
 export let onKeyDown = null;
 export let overrides = {};
-export let title;
+export let title = '';
 export let variant = VARIANT.light;
-export let ref;
+export let ref = undefined;
 
 let focusVisible = false;
 

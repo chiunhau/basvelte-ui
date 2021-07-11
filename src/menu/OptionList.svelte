@@ -17,7 +17,7 @@ export let _$isHighlighted;
 export let resetMenu = () => {};
 export let onMouseEnter = () => {};
 export let getItemLabel = (item) => (item ? item.label : '');
-export let ref;
+export let ref = undefined;
 
 const [ListItem, listItemProps] = getOverrides(
   overrides.ListItem,

@@ -1,7 +1,7 @@
 <script>
 import Div from '../../common/Div.svelte';
 import { getSizeStyles } from '../utils';
-export let ref;
+export let ref = null;
 </script>
 
 <Div

@@ -1,11 +1,9 @@
 <script>
 import Div from '../../common/Div.svelte';
 import { STYLE_TYPE } from '../constants';
-export let ref;
 </script>
 
 <Div
-  bind:ref
   styled="{(props) => {
     if (props.$checkmarkType === STYLE_TYPE.toggle) {
       const backgroundColor = () => {

@@ -49,11 +49,8 @@ import { Drawer, ANCHOR as DRAWER_ANCHOR } from 'basvelte-ui/drawer/index.js';
 import { StatefulPopover } from 'basvelte-ui/popover/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 
-let showLayer = false;
 let isOpen = false;
 let drawerIsOpen = false;
-let divRef;
-let divRef2;
 let isTetherOpen = false;
 
 // Tether demo
@@ -68,15 +65,6 @@ const handlePopperUpdate = (normalizedOffsets) => {
 const handleOpenModal = () => {
   isOpen = true;
 };
-
-onMount(() => {
-  console.log(divRef);
-  console.log(divRef2);
-});
-
-$: {
-  console.log(anchorRef);
-}
 </script>
 
 <Theme>

@@ -1,11 +1,9 @@
 <script>
 import Span from '../../common/Span.svelte';
 import { getBackgroundColor, getBorderColor } from '../utils';
-export let ref;
 </script>
 
 <Span
-  bind:ref
   styled="{(props) => {
     const {
       $checked,

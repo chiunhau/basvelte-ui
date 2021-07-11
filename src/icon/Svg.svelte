@@ -1,12 +1,11 @@
 <script>
 import Svg from '../common/Svg.svelte';
-export let ref;
+export let ref = null;
 </script>
 
 <Svg
   bind:ref
   styled="{({ $theme, $size, $color }) => {
-    console.log($size);
     let size = $theme.sizing.scale600;
     if ($size) {
       if ($theme.sizing[$size]) {

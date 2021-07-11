@@ -1,10 +1,10 @@
 <script>
 import Icon from '../Icon.svelte';
 
-export let ref;
+export let ref = null;
 export let title = 'Filter';
-export let size;
-export let color;
+export let size = 24;
+export let color = undefined;
 export let overrides = {};
 
 const SvgOverride = overrides && overrides.Svg ? overrides.Svg : {};

@@ -3,14 +3,14 @@ import { setContext } from 'svelte';
 import { getOverrides } from '../styles';
 import { Grid as DefaultStyledGrid } from './styled/index.js';
 
-export let align;
-export let behavior;
-export let gridColumns;
-export let gridGaps;
-export let gridGutters;
-export let gridMargins;
-export let gridMaxWidth;
-export let gridUnit;
+export let align = undefined;
+export let behavior = undefined;
+export let gridColumns = undefined;
+export let gridGaps = undefined;
+export let gridGutters = undefined;
+export let gridMargins = undefined;
+export let gridMaxWidth = undefined;
+export let gridUnit = undefined;
 export let overrides = {};
 
 setContext('basvelte-ui:layoutGrid', {
