@@ -12,6 +12,10 @@ main {
   padding: 20px;
   background-color: #fff;
 }
+
+.popover-content {
+  padding: 20px;
+}
 </style>
 
 <script>
@@ -42,6 +46,7 @@ import {
   TETHER_PLACEMENT,
 } from 'basvelte-ui/layer/index.js';
 import { Drawer, ANCHOR as DRAWER_ANCHOR } from 'basvelte-ui/drawer/index.js';
+import { StatefulPopover } from 'basvelte-ui/popover/index.js';
 const items = [{ label: 'apple' }, { label: 'banana' }, { label: 'cake' }];
 
 let showLayer = false;
@@ -134,6 +139,11 @@ $: {
               }}">Close</Button
             ></ModalFooter>
         </Modal>
+        <Heading>Popover</Heading>
+        <StatefulPopover>
+          <Button slot="anchor">Open Popover</Button>
+          <div class="popover-content" slot="content">I am popover content</div>
+        </StatefulPopover>
         <Heading>Drawer</Heading>
         <Button
           on:click="{() => {

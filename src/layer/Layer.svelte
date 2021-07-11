@@ -5,6 +5,8 @@ import { Container } from './styled/index.js';
 
 export let onEscape = () => {};
 export let onDocumentClick = () => {};
+export let onLayerMount = () => {};
+export let mountNode;
 
 const layerContext = getContext('basvelte-ui:layers');
 const {
@@ -17,6 +19,9 @@ const {
 onMount(() => {
   addEscapeHandler(onEscape);
   addDocClickHandler(onDocumentClick);
+  if (mountNode) {
+    onLayerMount && onLayerMount();
+  }
 });
 
 onDestroy(() => {

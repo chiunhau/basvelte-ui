@@ -44,7 +44,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] Avatar 🚧
 - [ ] Drawer 🚧
 - [ ] Modal 🚧
-- [ ] Popover
+- [ ] Popover 🚧
 - [ ] Layer 🚧
 
 ### Advanced

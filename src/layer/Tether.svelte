@@ -39,7 +39,6 @@ $: {
 
 const initializePopper = () => {
   const { modifiers, ...restOptions } = popperOptions;
-
   if (!anchorRef || !popperRef) return;
 
   popper = new Popper(anchorRef, popperRef, {
@@ -58,9 +57,6 @@ const initializePopper = () => {
       },
       applyStyle: {
         // Disable default styling modifier, we'll apply styles on our own
-        enabled: false,
-      },
-      applyReactStyle: {
         enabled: true,
         fn: handlePopperUpdate,
         order: 900,
