@@ -1,14 +1,7 @@
-<script>
-import { getContext } from 'svelte';
+<script context="module">
 import { H1, H2, H3, H4, H5, H6 } from '../common/index';
 
-export let styleLevel;
-
-const headingComponents = [H1, H2, H3, H4, H5, H6];
-
-const level = getContext('basvelte-ui:headingLevel');
-
-let renderedLevel = level > 6 ? 6 : level < 1 ? 1 : level;
+const headings = [H1, H2, H3, H4, H5, H6];
 
 const FONTS = [
   '',
@@ -21,8 +14,16 @@ const FONTS = [
 ];
 </script>
 
+<script>
+import { getContext } from 'svelte';
+
+export let styleLevel = undefined;
+
+const level = getContext('basvelte-ui:headingLevel');
+</script>
+
 <svelte:component
-  this="{headingComponents[renderedLevel - 1]}"
+  this="{headings[level > 6 ? 5 : level < 1 ? 0 : level - 1]}"
   data-basvelte="heading"
   font="{styleLevel ? FONTS[styleLevel] : FONTS[level]}">
   <slot />

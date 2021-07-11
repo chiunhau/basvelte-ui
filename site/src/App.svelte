@@ -84,6 +84,9 @@ $: {
     <HeadingLevel>
       <Heading>Basvelte UI Playground</Heading>
       <HeadingLevel>
+        <HeadingLevel>
+          <Heading>Sub heading</Heading>
+        </HeadingLevel>
         <Heading>Layout Grid</Heading>
         <Grid gridColumns="{[2, 6, 12]}">
           <Cell>1</Cell>
