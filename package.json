@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup -c -w",
-    "start": "sirv site/public --no-clear",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "site:build": "rollup -c",
+    "site:dev": "rollup -c -w",
+    "site:start": "sirv site/public --no-clear",
     "icon:generate": "node ./src/icon/build-icons.js"
   },
-  "author": "",
+  "author": "Chiun Hau You",
   "license": "MIT",
   "description": "",
   "dependencies": {

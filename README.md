@@ -38,7 +38,7 @@ import { Button, SIZE } from 'basvelte-ui/button';
 - [ ] Tabs
 - [ ] Layout Grid 🚧
 - [x] Heading 🎉
-- [ ] Icon
+- [ ] Icon 🚧
 - [ ] List 🚧
 - [ ] Tag 🚧
 - [ ] Avatar 🚧
