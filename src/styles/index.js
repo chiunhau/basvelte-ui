@@ -4,7 +4,19 @@ const styletronClient = new Client();
 
 export const themeContextKey = 'basvelte-ui:theme';
 
-export const css = (style) => styletronClient.renderStyle(style);
+export const renderStyle = (style) => styletronClient.renderStyle(style);
+export const renderKeyframes = (style) =>
+  styletronClient.renderKeyframes(style);
+
+export const css = ({ animationName, ...restStyles }) => {
+  if (animationName) {
+    return `${renderStyle({
+      ...restStyles,
+      animationName: renderKeyframes(animationName),
+    })}`;
+  }
+  return renderStyle(restStyles);
+};
 
 export function getOverride(override) {
   if (override && typeof override === 'object') {
