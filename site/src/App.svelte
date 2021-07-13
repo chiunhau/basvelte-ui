@@ -91,11 +91,17 @@ const handleOpenModal = () => {
         <Button size="{SIZE.compact}">Compact</Button>
         <Button size="{SIZE.default}">Default</Button>
         <Button size="{SIZE.large}">Large</Button>
-
-        <Button startEnhancer="😀">StartEnhancer</Button>
-        <Button endEnhancer="😀">EndEnhancer</Button>
+        <Button isLoading>Large</Button>
         <Button disabled>Disabled</Button>
-
+        <Heading>Button with enhancers</Heading>
+        <Button>
+          <Alert slot="startEnhancer" />
+          HELLO
+        </Button>
+        <Button>
+          HELLO
+          <Alert slot="endEnhancer" />
+        </Button>
         <Heading>Input</Heading>
         <FormControl label="Label" caption="Caption">
           <Input startEnhancer="😀" placeholder="Placeholder" />

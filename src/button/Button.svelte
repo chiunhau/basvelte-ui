@@ -5,8 +5,10 @@ import {
   BaseButton as StyledBaseButton,
   LoadingSpinner as StyledLoadingSpinner,
   LoadingSpinnerContainer as StyledLoadingSpinnerContainer,
+  StartEnhancer as StyledStartEnhancer,
+  EndEnhancer as StyledEndEnhancer,
+  Internal as StyledInternal,
 } from './styled/index.js';
-import ButtonInternals from './ButtonInternals.svelte';
 import { isFocusVisible as checkIsFocusVisible } from '../utils/focusVisible';
 import { KIND, SHAPE, SIZE } from './constants';
 
@@ -14,8 +16,6 @@ export let disabled = false;
 export let isLoading = false;
 export let isSelected = false;
 export let kind = KIND.primary;
-export let startEnhancer = null;
-export let endEnhancer = null;
 export let overrides = {};
 export let ref = null;
 export let shape = SHAPE.default;
@@ -59,6 +59,19 @@ const [LoadingSpinnerContainer, loadingSpinnerContainerProps] = getOverrides(
   overrides.LoadingSpinnerContainer,
   StyledLoadingSpinnerContainer
 );
+const [StartEnhancer, startEnhancerProps] = getOverrides(
+  overrides.StartEnhancer,
+  StyledStartEnhancer
+);
+const [EndEnhancer, endEnhancerProps] = getOverrides(
+  overrides.EndEnhancer,
+  StyledEndEnhancer
+);
+
+const [Internal, internalProps] = getOverrides(
+  overrides.Internal,
+  StyledInternal
+);
 
 $: sharedProps = {
   _$disabled: disabled,
@@ -77,26 +90,31 @@ $: sharedProps = {
   on:click="{internalOnClick}"
   on:blur="{handleBlur}"
   on:focus="{handleFocus}"
+  {...isLoading
+    ? {
+        'aria-label': 'loading',
+        'aria-busy': 'true',
+      }
+    : {}}
   {...buttonProps}
-  {...sharedProps}>
+  {...sharedProps}
+  {...$$restProps}>
+  <Internal {...internalProps} {...sharedProps}>
+    {#if $$slots.startEnhancer}
+      <StartEnhancer {...startEnhancerProps} {...sharedProps}>
+        <slot name="startEnhancer" />
+      </StartEnhancer>
+    {/if}
+    <slot />
+    {#if $$slots.endEnhancer}
+      <EndEnhancer {...endEnhancerProps} {...sharedProps}>
+        <slot name="endEnhancer" />
+      </EndEnhancer>
+    {/if}
+  </Internal>
   {#if isLoading}
-    <div style="opacity: 0; display: flex; height: 0px;">
-      <ButtonInternals
-        startEnhancer="{startEnhancer}"
-        endEnhancer="{endEnhancer}"
-        sharedProps="{sharedProps}">
-        <slot />
-      </ButtonInternals>
-    </div>
     <LoadingSpinnerContainer {...sharedProps} {...loadingSpinnerContainerProps}>
       <LoadingSpinner {...sharedProps} {...loadingSpinnerProps} />
     </LoadingSpinnerContainer>
-  {:else}
-    <ButtonInternals
-      startEnhancer="{startEnhancer}"
-      endEnhancer="{endEnhancer}"
-      sharedProps="{sharedProps}">
-      <slot />
-    </ButtonInternals>
   {/if}
 </Button>
